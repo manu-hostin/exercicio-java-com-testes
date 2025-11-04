@@ -1,10 +1,18 @@
 package org.example.util;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConexaoBanco {
 
-    public static Connection conectar(){
-        return null;
+    private static final String URL = "jdbc:mysql://localhost:3306/mod_testes?useSSL=false&serverTimezone=UTC";
+    private static final String user = "root";
+    private static final String password = "mysqlPW";
+
+
+    public static Connection conectar() throws SQLException {
+
+        return DriverManager.getConnection(URL, user, password);
     }
 }
